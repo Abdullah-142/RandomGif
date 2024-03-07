@@ -4,7 +4,7 @@ import useGif from '../hooks/useGif';
 export default function Random() {
   const [tag, settag] = useState('car')
   const { gif, loading, getdata } = useGif(tag);
-  const [count, setCount] = useState(false)
+  const [count, setCount] = useState(false);
   const [enterCount, setEnterCount] = useState(0);
 
   function handleEnter(event) {
@@ -13,13 +13,13 @@ export default function Random() {
         return;
       }
       setEnterCount(enterCount + 1);
-      if (enterCount == 5) {
+      if (enterCount == 10) {
         setEnterCount(0);
         setCount(true);
         alert("You have exceeded the limit of 5 requests in 10 seconds. Please wait for 10 seconds before trying again.");
         setTimeout(() => (
           setCount(false)
-        ), 10000)
+        ), 8000)
         return;
       }
       getdata(tag);
